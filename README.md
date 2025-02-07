@@ -145,19 +145,18 @@ you can type `wtf` to get context-dependent help.
 
 **Example 1:**
 Forgetting to escape the space in a filename can result in weird error messages, but `wtf` diagnoses that for you:
-```
-$ unzip -c /data/Twitter dataset/geoTwitter20-01-01.zip
-unzip:  cannot find or open /data/Twitter, /data/Twitter.zip or /data/Twitter.ZIP.
-$ wtf
-### Error Analysis
-The issue lies in the `unzip` command. The error message indicates that the file cannot be found.
 
-### Solution
-```bash
-unzip -c "/data/Twitter dataset/geoTwitter20-01-01.zip"
-```
-The correct command uses quotes to handle the space in the directory name.
-```
+    $ unzip -c /data/Twitter dataset/geoTwitter20-01-01.zip
+    unzip:  cannot find or open /data/Twitter, /data/Twitter.zip or /data/Twitter.ZIP.
+    $ wtf
+    ### Error Analysis
+    The issue lies in the `unzip` command. The error message indicates that the file cannot be found.
+
+    ### Solution
+    ```bash
+    unzip -c "/data/Twitter dataset/geoTwitter20-01-01.zip"
+    ```
+    The correct command uses quotes to handle the space in the directory name.
 
 If you have followup questions you want to ask, you can use the `groq -c` command to continue the conversation.
 For example:
