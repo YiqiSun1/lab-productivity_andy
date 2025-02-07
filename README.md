@@ -183,7 +183,7 @@ which often results in strange error messages.
 
     $ sh example.py
     example.py: 3: Syntax error: word unexpected (expecting ")")
-    (.venv) lambda-server:~/proj/cmc-csci143/topic_01_mapreduce/lab2-productivity (master #%) $ wtf
+    $ wtf
     ### Error Explanation
     The error `example.py: 3: Syntax error: word unexpected (expecting ")")` occurs because the `sh` command is used to run a Python script, which is not compatible with shell syntax.
 
