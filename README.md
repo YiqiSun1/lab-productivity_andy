@@ -64,7 +64,7 @@ You can make your environment more comfortable by modifying the `.bashrc` file.
 A simple way to modify `.bashrc` programmatically is with output redirection.
 Run the following command
 ```
-$ echo 'echo "Have a nice day :)"' >> .bashrc
+$ echo 'echo "Have a nice day :)"' >> ~/.bashrc
 ```
 
 > **Note:**
@@ -238,8 +238,8 @@ for example about how to modify the code.
 
     This way, if the `--filepath` argument is not provided when running the script, `argparse` will raise an error and display the usage message.
 
-> ~~**Exercise:**
-> Source the `.wtf.sh` file in your `.bashrc` so that the `wtf` will be automatically enabled when you login.~~
+> **Exercise:**
+> Source the `.wtf.sh` file in your `.bashrc` so that the `wtf` will be automatically enabled when you login.
 
 > **Note:**
 > `wtf` is an experimental tool I wrote this week partly to help myself and partly to help you all.

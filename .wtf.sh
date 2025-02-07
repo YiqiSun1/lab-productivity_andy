@@ -21,15 +21,23 @@ if [ -z "$WTF_FILE" ]; then
     exec script --quiet -c 'bash --init-file ~/.wtf.sh' -f "$WTF_FILE"
 fi
 
-# We must immediately source the ~/.bashrc file
-# because the `script` command above creates a new shell without sourcing.
-# We might not be in $HOME anymore,
-# so we record/restore the working directory after sourcing.
-_WTF_TMP_PWD=$(pwd)
-cd $HOME
-source .bashrc
-cd $_WTF_TMP_PWD
-unset _WTF_TMP_PWD
+# Sourcing bashrc can cause an infinite loop
+# if this file is also sourced within bashrc.
+# So we track if we have already sourced bashrc
+# and doo not resource a second time.
+# This can potentially be dangerous if there are non-idempotent actions in bashrc.
+if [ -z "$_WTF_BASHRC" ]; then
+    _WTF_BASHRC=1
+    # We must immediately source the ~/.bashrc file
+    # because the `script` command above creates a new shell without sourcing.
+    # We might not be in $HOME anymore,
+    # so we record/restore the working directory after sourcing.
+    _WTF_TMP_PWD=$(pwd)
+    cd $HOME
+    source .bashrc
+    cd $_WTF_TMP_PWD
+    unset _WTF_TMP_PWD
+fi
 
 # `trap` runs the command in $1 whenever event $2 occurs.
 # Here, we use it to delete the file whenever our shell session ends.
