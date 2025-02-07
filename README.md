@@ -127,7 +127,7 @@ If you copy/paste it into the terminal, you should see colored output when you r
 
 ## Part 3: Even Better LLM Support
 
-Do you ever get a crazy error message and be like
+We all sometimes get a crazy error message and be like
 
 <img src=img/jackie-chan-meme.png width=400px />
 
