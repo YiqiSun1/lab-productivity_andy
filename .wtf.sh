@@ -12,16 +12,24 @@
 # So within the script we source this file a second time,
 # the if condition will be false,
 # and the rest of this file will run.
-# We must immediately source the ~/.bashrc file because 
 if [ -z "$WTF_FILE" ]; then
     # The contents of $WTF_FILE will contain the full history of the current shell session.
     # Shell histories can contain sensitive information like API keys,
     # and so we create the file with restrictive permissions.
     export WTF_FILE=$(mktemp)
     chmod 600 "$WTF_FILE"
-    exec script --quiet -c 'bash --init-file .wtf.sh' -f "$WTF_FILE"
+    exec script --quiet -c 'bash --init-file ~/.wtf.sh' -f "$WTF_FILE"
 fi
-source ~/.bashrc
+
+# We must immediately source the ~/.bashrc file
+# because the `script` command above creates a new shell without sourcing.
+# We might not be in $HOME anymore,
+# so we record/restore the working directory after sourcing.
+_WTF_TMP_PWD=$(pwd)
+cd $HOME
+source .bashrc
+cd $_WTF_TMP_PWD
+unset _WTF_TMP_PWD
 
 # `trap` runs the command in $1 whenever event $2 occurs.
 # Here, we use it to delete the file whenever our shell session ends.
