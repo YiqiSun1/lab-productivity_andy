@@ -64,9 +64,13 @@ _wtf() {
     PROMPT=$(cat <<EOF
 Below is the last $CONTEXT_LINES lines of a shell session.
 Something bad happened that I'm trying to debug.
-Explain the problem and how to fix it at a beginner level working through any possible edge cases.
-If possible be concise (<10 lines), but maintain good markdown formatting and prefer markdown code blocks to inline code.
-Only provide help with the most recent error and ignore previous errors.
+Explain the problem and how to fix it working through any possible edge cases.
+The explanation should:
+1. target an expert programmer
+2. be concise (<10 lines)
+3. use good markdown formatting
+4. prefer code blocks to inline code
+5. provide help with only the most recent error (ignore previous errors)
 \`\`\`
 $SESSION_HISTORY
 \`\`\`

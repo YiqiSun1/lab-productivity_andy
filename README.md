@@ -13,13 +13,13 @@ In this task you will setup the `@p` macro for debugging python programs.
 
 1. Clone this repo and cd into the resulting folder.
 
-1. Open the file `p_macro` in vim.
+1. Open the file `p_macro` in Vim.
    You should see contents that look like
    ```
    ^y$iprint("^[A=", ^[pa)^[^
    ```
    This is the "source code" for the macro,
-   and is the sequence of key presses that will be sent to vim whenever you activate the macro.
+   and is the sequence of key presses that will be sent to Vim whenever you activate the macro.
    The `^[` characters should appear in a slightly different color, and if you move your cursor over them, you'll notice they behave like a single character.
    This is how the `Esc` key gets rendered in the terminal, so each of these characters will cause the `Esc` key to be pressed.
 
@@ -28,9 +28,9 @@ In this task you will setup the `@p` macro for debugging python programs.
    ```
    "pyy
    ```
-   The `yy` yanks (vim's language for copying) the entire line,
-   and the `"p` indicates that we are yanking into the `p` register (vim's language for clipboard).
-   Your typical muggle text editor has only a single clipboard to copy/paste from, but vim has a separate register for every key on the keyboard.
+   The `yy` yanks (Vim's language for copying) the entire line,
+   and the `"p` indicates that we are yanking into the `p` register (Vim's language for clipboard).
+   Your typical muggle text editor has only a single clipboard to copy/paste from, but Vim has a separate register for every key on the keyboard.
    This lets us copy/paste many different things at the same time.
    Macros use the same registers as yanking/pasting, so by yanking into the `p` register we are also creating the `p` macro.
    
@@ -51,7 +51,7 @@ In this task you will setup the `@p` macro for debugging python programs.
    print("python_variable_name=", python_variable_name)
    ```
 
-1. (optional) For a detailed reference on writing your own vim macros, see <https://vim.fandom.com/wiki/Macros>.
+1. (optional) For a detailed reference on writing your own Vim macros, see <https://vim.fandom.com/wiki/Macros>.
     These are quite useful for automating lots of small repetitive tasks.
 
 ## Part 1: Update `.bashrc`
@@ -88,7 +88,7 @@ One task that is not currently being automated is loading up your venv that stor
 > Modify your `.bashrc` so that:
 > (1) the previous echo command is removed, and
 > (2) your venv is automatically activated.
-> Recall that `G` is the vim command to move to the end of a file, `dd` deletes the current line, and `cc` changes the current line.
+> Recall that `G` is the Vim command to move to the end of a file, `dd` deletes the current line, and `cc` changes the current line.
 
 > **Note:**
 > Notice that the exercise above does not ask you to verify that the changes were successful.
@@ -241,10 +241,20 @@ for example about how to modify the code.
 > **Exercise:**
 > Source the `.wtf.sh` file in your `.bashrc` so that the `wtf` will be automatically enabled when you login.
 
-> **(optional) Exercise:**
-> Try running `_wtf` instead of `wtf` to display the prompt without passing it to the LLM.
-> You can also look through the `.wtf.sh` source file to see how it was created.
-> Anyone who comes up with a way to meaningfully improve the prompt will be awarded +1 point of extra credit.
+> **Note:**
+> `wtf` is an experimental tool I wrote this week partly to help myself and partly to help you all.
+> If you all find any bugs, let me know and I'll fix them.
+> (Or if you fix them, then show me the fix and I'll award extra credit.)
+
+> **Exercise:**
+> The source file `.wtf.sh` uses a few shell tricks that you probably haven't seen before,
+> but it should be relatively accessible.
+> It is still firmly in the realm of what I consider "beginner" shell scripts.
+> Open the file in Vim and view how the prompt is being constructed.
+> This should give you a better sense of the types of problems that `wtf` might be able to help with.
+>
+> Notice that on lines 69/70 I have the given version of `.wtf.sh` targeting an "expert" programmer and using <10 lines of code.
+> You may wish to change this to target a beginner programmer and use a longer explanation.
 
 ## Submission
 
