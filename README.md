@@ -74,7 +74,7 @@ $ echo 'echo "Have a nice day :)"' >> .bashrc
 
 Verify that you've modified the file by running
 ```
-$ tail -n .bashrc
+$ tail ~/.bashrc
 ```
 
 Now logout and login again.
@@ -115,7 +115,7 @@ The following modification also colors the output in light blue so that it is ea
 ```
 llm_blue() {
     printf "\033[94m"
-    llm "$1"
+    command llm "$@"
     printf "\033[0m"
 }
 alias groq='llm_blue -s "answer concisely in 5-10 lines" -m groq-llama-3.3-70b'
