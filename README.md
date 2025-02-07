@@ -137,7 +137,7 @@ Notice that there is a file `.wtf.sh` in this folder.
 Move it to your home folder and source it:
 ```
 $ mv .wtf.sh ~
-$ source .wtf.sh
+$ source ~/.wtf.sh
 ```
 You've now enabled the `wtf` command.
 Whenever you encounter an error message in the shell,
