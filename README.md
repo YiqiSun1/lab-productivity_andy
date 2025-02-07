@@ -238,8 +238,8 @@ for example about how to modify the code.
 
     This way, if the `--filepath` argument is not provided when running the script, `argparse` will raise an error and display the usage message.
 
-> **Exercise:**
-> Source the `.wtf.sh` file in your `.bashrc` so that the `wtf` will be automatically enabled when you login.
+> ~~**Exercise:**
+> Source the `.wtf.sh` file in your `.bashrc` so that the `wtf` will be automatically enabled when you login.~~
 
 > **Note:**
 > `wtf` is an experimental tool I wrote this week partly to help myself and partly to help you all.
